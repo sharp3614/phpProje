@@ -15,17 +15,16 @@ include('components\nav.php');
           </div>
         </div>
         <div class="card-body px-0 pb-2">
-          <div class="table-responsive">
-            <table class="table align-middle">
+            <table class="table-responsive">
               <thead>
-                <tr>
-                  <th class=" text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Id</th>
-                  <th class=" text-uppercase text-secondary text-xs font-weight-bolder opacity-7">ÜRÜN ADI</th>
-                  <th class=" text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Ürünün Markası</th>
-                  <th class=" text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Kategorisi</th>
-                  <th class=" text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Alış Fiyatı</th>
-                  <th class=" text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Satış Fiyatı</th>
-                  <th class=" text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Miktar</th>
+                <tr class=" text-center">
+                  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Id</th>
+                  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">ÜRÜN ADI</th>
+                  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Ürünün Markası</th>
+                  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Kategorisi</th>
+                  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Alış Fiyatı</th>
+                  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Satış Fiyatı</th>
+                  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Miktar</th>
                   <th class="text-secondary opacity-7"></th>
                 </tr>
               </thead>
@@ -39,22 +38,22 @@ include('components\nav.php');
                                 ?>
                                 <tr class='border-bottom'>
                       
-                      <td class='align-middle  text-sm ' style='padding: 0.75rem 1.5rem;'>
+                      <td class='align-middle text-sm' style='padding: 0.75rem 1.5rem;'>
                         <p><?php echo $row['urun_id'] ?></p>
                       </td>
-                      <td class='align-middle  text-sm ' style='padding: 0.75rem 1.5rem;'>
-                        <p><?php echo $row["urun_adi"]?></p>
+                      <td class='align-middle text-sm ' style='padding: 0.75rem 1.5rem;'>
+                      <?php echo $row["urun_adi"]?>
                       </td>
-                      <td class='align-middle  text-sm' style='padding: 0.75rem 1.5rem;'>
+                      <td class='align-middle text-sm' style='padding: 0.75rem 1.5rem;'>
                         <p><?php echo $row["marka_adi"] ?></p>
                       </td>
-                      <td class='align-middle  text-sm' style='padding: 0.75rem 1.5rem;'>
+                      <td class='align-middle text-sm' style='padding: 0.75rem 1.5rem;'>
                         <p><?php echo $row["kategori_adi"] ?></p>
                       </td>
-                      <td class='align-middle  text-sm' style='padding: 0.75rem 1.5rem;'>
+                      <td class='align-middle text-sm' style='padding: 0.75rem 1.5rem;'>
                         <p><?php echo $row["alis_fiyat"] ?></p>
                       </td>
-                      <td class='align-middle  text-sm' style='padding: 0.75rem 1.5rem;'>
+                      <td class='align-middle text-sm' style='padding: 0.75rem 1.5rem;'>
                         <p><?php echo $row["satis_fiyat"] ?></p>
                       </td>
                       <td class='align-middle text-uppercase  text-sm' style='padding: 0.75rem 1.5rem;'>
@@ -63,8 +62,8 @@ include('components\nav.php');
                       </td>
                       
                       <td class='align-middle' style='padding: 0.75rem 1.5rem;'>
-                      <button type='button' class='btn btn-dark px-3' data-bs-toggle='modal' data-bs-target='#exampleModal'>Düzenle</button>
-                      <a href="database/dbHelper.php?urunSil=<?php echo $row['urun_id'] ?>& urunAdi=<?php echo $row['urun_adi'] ?>" class="btn btn-danger px-3">Sil</a>
+                      <button type='button' class='btn btn-dark px-3 w-100' data-bs-toggle='modal' data-bs-target='#exampleModal'>Düzenle</button>
+                      <a class="btn btn-danger px-3 w-100" href="database/dbHelper.php?urunSil=<?php echo $row['urun_id'] ?>& urunAdi=<?php echo $row['urun_adi'] ?>" >Sil</a>
                       </td>
                     </tr>
                     <?php
@@ -76,7 +75,6 @@ include('components\nav.php');
 
               </tbody>
             </table>
-          </div>
         </div>
         <!-- Modal Pop-up -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
