@@ -16,15 +16,17 @@ include('components\header.php');
                 <div class="d- bg-gradient-dark shadow-primary border-radius-lg">
                     <div class="row p-3">
 
-                        <div class="col-2 d-flex justify-content-between align-items-center">
+                        <div class="col d-flex justify-content-between align-items-center">
                             <h5 class="text-white ms-4">Depolar</h5>
                         </div>
 
-                        <div class="col d-flex justify-content-center align-items-center">
+                        <div class="col d-flex justify-content-end align-items-center">
+                            <div class="bd-highlight me-4">
+                                <button type="button" class="btn btn-success m-0" data-bs-toggle='modal'
+                                    data-bs-target='#exampleModal'>
+                                    Depo Ekle
+                                </button>
 
-                            <div class="input-group input-group-outline">
-                                <label class="form-label text-white">Ara</label>
-                                <input type="text" name="ara" class="form-control text-white" data-search>
                             </div>
                         </div>
 
@@ -33,34 +35,72 @@ include('components\header.php');
 
 
 
-                <div class="card-body d-flex flex-wrap px-0 pb-2 justify-content-center" style="background-color:rgba(200,200,20,0.1);">
+                <div class="card-body d-flex flex-wrap px-0 pb-2 justify-content-center"
+                    style="background-color:rgba(200,200,20,0.1);">
 
 
                     <?php
-                    for ($i=0; $i < 100; $i++) { 
-                        ?>
+                          $sqldepo = "SELECT * FROM depobilgileri WHERE kullanici_id =".$_SESSION['idLogin'];
+                          $result = mysqli_query($baglan, $sqldepo);
+                          if (mysqli_num_rows($result)>0) {
+                            while ($row=mysqli_fetch_assoc($result)) {
+                    ?>
                     <div class="card m-2" style="width: 18rem;">
                         <div class="card-header text-center h5">
                             Lorem, ipsum.
                         </div>
 
                         <div class="card-body">
-                            <p class="card-text"><b>Adres:</b> Lorem ipsum dolor sit amet.</p>
-                            <p class="card-text"><b>İletişim:</b>0505 555 55 55</p>
-                            
+                            <p class="card-text"><b>Adres: </b> <?php echo $row["adres"] ?></p>
+                            <p class="card-text"><b>İletişim: </b><?php echo $row["telefon"] ?></p>
                         </div>
                         <div class="card-footer">
-                        <div class="d-flex justify-content-center">
-                        <a href="#" class="btn btn-secondary">Detay</a>
-                        </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="btn btn-secondary">Detay</a>
+                            </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php } }
+                    
+                    else{
+                        
+                        echo "<p>Depo bulunmamaktadır...</p>";
+                        
+                    }?>
                 </div>
             </div>
         </div>
     </div>
     </div>
 
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Depo Ekleme</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Telefon:</label>
+              <input class="form-control border border-dark p-2" id="message-text"></input>
+            </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Adres:</label>
+            <textarea type="text" class="form-control border border-dark p-2" id="recipient-name" placeHolder="Hello"> </textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+        <button type="button" class="btn btn-primary">Kaydet</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <?php include('components\footer.php') ?>
