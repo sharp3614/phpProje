@@ -205,8 +205,6 @@ if(isset($_POST['personelKayit'])){
 
 
 
-  $sqlpersonel="INSERT INTO personel(ad, soyad, adres, telefon, resim, kullanici_id) VALUES ('$ad', '$soyad', '$adres', '$telefon', '$img', $kId)";
-  $sqlpersonel2="INSERT INTO islem_log(islem_adi, yapilan_islem, kullanici_id) VALUES ('$ad $soyad','Personel ekleme', $kId)";
  
 
  if (mysqli_query($baglan, $sqlpersonel)) {
